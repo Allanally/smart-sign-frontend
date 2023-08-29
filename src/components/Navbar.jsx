@@ -89,7 +89,7 @@ const Navbar = ({ permissions, setPermissions }) => {
     pdf.setFontSize(15);
     pdf.text(data, 45, 30); 
   
-    pdf.save("justification_form.pdf");
+    pdf.save(`${name}_justification_form.pdf`);
 
     if (setPermissions) {
       setPermissions((prevPermissions) => {

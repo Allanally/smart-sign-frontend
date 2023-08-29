@@ -44,7 +44,8 @@ const Fault = () => {
                 <label className="font">Signing Date</label><br /><br />
                 <input type="date" onChange={(e) => setDate(e.target.value)} required /><br /><br />
                </div>
-               <div className="select1">
+               <div className="flexing">
+                  <div className="select1">
                   <label className="font" >Case Type</label><br /><br />
                   <select value={type} required onChange={(e) => setType(e.target.value)}>
                      <option value="Initiative">Initiative</option>
@@ -60,6 +61,8 @@ const Fault = () => {
                      <option value="matron">Matron</option>
                   </select>
                </div>
+               </div>
+               
                <div>
                   <label className="font">Message</label><br /><br />
                   <textarea name="" id="" cols="35" rows="10" value={message} onChange={(e) => setMessage(e.target.value)}></textarea><br /><br />

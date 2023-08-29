@@ -8,7 +8,7 @@ const ViewDocs = () => {
     
     const [name, setName] = useState('');
     const [stream, setStream] = useState('');
-    const [faults, setFaults] = useState([]);
+    const [faults, setFaults] = useState(null);
 
     const handleSubmit = async (e) => {
         try {
@@ -17,7 +17,7 @@ const ViewDocs = () => {
               stream,
             });
             console.log(data);
-            setFaults(Array.from(data));
+            setFaults(data);
           } catch (err) {
             console.log(err);
           }
@@ -33,7 +33,7 @@ const ViewDocs = () => {
             <br />
             <br />
             <div className="more">
-            <label className="font" style={{marginLeft: "15%", fontSize: "30px"}}>Sort By</label><br /><br />
+            <label className="font" style={{marginLeft: "15%", fontSize: "30px", fontFamily: "Mukta, sans-serif",  fontWeight: "500"}}>Sort By</label><br /><br />
             <label className="font">Name: </label>
             <input type="text" className="text" placeholder="Enter Student Names"  value={name} onChange={(e) => setName(e.target.value)} /><br /><br />
             <label className="font">Class: </label>
@@ -66,23 +66,21 @@ const ViewDocs = () => {
             <option value="S6 PCB">S6 PCB</option>
             <option value="S6 PCM">S6 PCM</option></select><br />
             <br />
-            <button onClick={handleSubmit}>Search</button>
+            <button style={{padding: '10px 40px 10px', background: 'rgb(4, 113, 255)', color: 'white', border: 'none', borderRadius: '5px'}} onClick={handleSubmit}>Search</button>
             </div>
         </div>
-        <div className="view-content">
-            <h1>Queried Faults</h1>
-            {faults.map((fault) => (
-            <div key={fault._id}>
-              <p>Student Names: {fault.name}</p>
-              <p>Signed Date: {fault.date}</p>
-              <p>Case Type: {fault.type}</p>
-              <p>Issuer: {fault.issuer}</p>
-              <p>Message: {fault.message}</p>
-              <p>Affiliate: {fault.user}</p>
-            </div>
-          ))
-        }
-          
+        <div className="view-content" >
+            <h1 style={{ fontFamily: "Mukta, sans-serif", fontWeight: "500"}}>Queried Faults</h1>
+            {faults && faults.map((fault) => (
+                    <div key={fault._id} className="view-slight">
+                        <p>Student Names: {fault.name}</p>
+                        <p>Signing Date: {fault.date}</p>
+                        <p>Case Type: {fault.type}</p>
+                        <p>Issuer: {fault.issuer}</p>
+                        <p>Message: {fault.message}</p>
+                        <p>Affiliate: {fault.user}</p>
+                    </div>
+                ))}
         
         </div>
         </div>

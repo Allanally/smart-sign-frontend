@@ -84,6 +84,7 @@ const Permission = () => {
     qrcode.style.display = 'none';
    })
   };
+
    
   const handleClick = () => {
     const heading = "Permission Form";
@@ -101,7 +102,7 @@ const Permission = () => {
     pdf.setFontSize(15);
     pdf.text(data, 45, 30); 
   
-    pdf.save("permission_form.pdf");
+    pdf.save(`${name}_permission_name`);
     navigate('/first')
 }
 
@@ -114,6 +115,7 @@ const Permission = () => {
           <br />
 <label className="font" >Student Names</label><br />
 <input type="text" className="names" placeholder="Eg: Ganza Hodari" value={name} onChange={(e) => setName(e.target.value)} /><br /><br />
+<div className="flexing">
 <div className="depart-date">
     <label className="font"  >Departure Date</label>
     <br /><br />
@@ -126,6 +128,8 @@ onChange={(e) => setDepartDate(e.target.value)} /><br />
     <input type="time" required  value={departTime}
 onChange={(e) => setDepartTime(e.target.value)} /><br />
 </div>
+</div>
+<div className="flexing" >
 <div className="expect-date">
 <label className="font">Return Date</label>
     <br /><br />
@@ -138,7 +142,9 @@ onChange={(e) => setReturnDate(e.target.value)}/><br />
     <input type="time" required  value={returnTime}
 onChange={(e) => setReturnTime(e.target.value)} /><br />
 </div>
-<div className="issuer">
+</div>
+<div className="flexing">
+  <div className="issuer">
 <label className="font">Issuer</label>
     <br /><br />
    
@@ -157,7 +163,9 @@ onChange={(e) => setReturnTime(e.target.value)} /><br />
     <option value="Other">Other</option>
    </select>
 </div><br />
-<div className="expect-date" style={{marginBottom: "10px"}}>
+</div>
+
+<div className="" style={{marginBottom: "10px", marginTop: "10px"}}>
 <label className="font">Class</label>
     <br /><br />
     <select value={stream} onChange={(e) => setStream(e.target.value)}>
@@ -197,17 +205,16 @@ onChange={(e) => setReturnTime(e.target.value)} /><br />
           <button className="btn"><IoMdExit /></button>
           <div className="qrcode-container">
             <h1>{name}</h1>
-            <h2>Scan The QrCode below to get your permission </h2>
+            <h2 style={{ fontFamily: "Mukta, sans-serif", fontWeight: "300"}}>Scan The QrCode below to get your permission </h2>
             <div className="real">
          {qrcodeData && (
             <QRCode
               value={qrcodeData}
               size={200}
-              level="H"
-            />
+              level="H" style={{ padding: "20px", border: "1px solid rgb(4, 113, 255)", borderRadius: "5px"}} />
           )}
           <br />
-          <button onClick={handleClick} className="button">Finish Process</button>
+          <button onClick={handleClick} className="button">Print</button>
           </div>
           </div>
          </div>

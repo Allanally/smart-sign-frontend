@@ -1,5 +1,6 @@
 .home-container{
   text-align: center;
+ 
 }
 
 .home-container img{
@@ -11,7 +12,7 @@ max-width: 100%;
 
 .home-container p{
   font-size: 25px;
-  margin-left: 9%;
+  margin-left: 22%;
   font-family: Mukta, sans-serif;
   font-weight: 50;
 
@@ -21,7 +22,7 @@ max-width: 100%;
   padding: 30px 80px 30px;
   border-radius: 5px;
   cursor: pointer;
-  background: rgb(70, 70, 253) ;
+  background: rgb(17, 119, 253) ;
   color: white;
   margin-left: 25.5%;
   font-family: Mukta, sans-serif;
@@ -31,7 +32,7 @@ max-width: 100%;
 }
 
 .login-container .form-cont{
-  margin-top: 10%;
+  margin-top: 8%;
   margin-left: 75%;
   width: 65%;
   box-shadow:  3px 3px 3px #ddd;
@@ -49,7 +50,7 @@ max-width: 100%;
 }
 .login-container h2{
   font-family: Mukta, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .login-container input[type="email"], input[type="password"]  {
@@ -57,6 +58,7 @@ max-width: 100%;
   height: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  outline: rgb(4, 113, 255);
 }
 
 .login-container .butt{
@@ -64,7 +66,7 @@ max-width: 100%;
 } 
 .login-container .butt button{
   color: white;
-  background-color: blue;
+  background-color: rgb(17, 119, 253);
   padding: 20px 70px 20px;
   border: none;
   border-radius: 5px;
@@ -73,8 +75,15 @@ max-width: 100%;
   font-weight: 700;
 }
 .login-container p{
+  margin-left: -5px;
   font-size: 20px;
-  color: blue;
+  color: rgb(49, 137, 253);
+  font-weight: 300;
+}
+.login-container span{
+  font-size: 20px;
+  color: rgb(58, 58, 255);
+  font-weight: 400;
 }
 .login-container a{
   text-decoration: none;
@@ -90,25 +99,23 @@ max-width: 100%;
 }
 .signup-container h2{
   font-family: Mukta, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
 }
 .signup-container .form-cont{
 
-  margin-top: 4%;
+  margin-top: -3%;
   margin-left: 75%;
   width: 63%;
   box-shadow:  2px 2px 3px #ddd;
 
 }
-.signup-container a{
-  font-size: 20px;
-  color: blue;
-}
+
 .signup-container input[type="email"], input[type="text"], input[type="password"]  {
   width: 95%;
   height: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  outline: rgb(17, 119, 253);
 }
 
 .signup-container .butt{
@@ -116,7 +123,7 @@ max-width: 100%;
 } 
 .signup-container .butt button{
   color: white;
-  background-color: blue;
+  background-color: rgb(17, 119, 253);
   padding: 20px 70px 20px;
   border: none;
   border-radius: 5px;
@@ -124,14 +131,22 @@ max-width: 100%;
   font-family: Mukta, sans-serif;
   font-weight: 700;
 }
-.signup-container p{
-  font-size: 20px;
-  color: blue;
-}
 .signup-container a{
   text-decoration: none;
+  color: rgb(21, 4, 255);
 }
-
+.signup-container label{
+  font-size: 15px;
+  font-family: Mukta, sans-serif;
+  font-weight: 300;
+}
+.signup-container p{
+  font-size: 20px;
+  font-family: Mukta, sans-serif;
+  font-weight: 300;
+  color: rgb(4, 113, 255);
+  margin-left: -5px;
+}
  
 .navbar img{
   margin-left: 10px;
@@ -163,13 +178,17 @@ max-width: 100%;
 }
 .view .more .font, .font{
   font-family: Mukta, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
 }
 .view select{
   width: 60%;
   height: 35px;
   border-radius: 5px;
   border: 1px solid #ddd;
+}
+.view-slight{
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 10px;
 }
 
 .first .container{
@@ -182,7 +201,9 @@ max-width: 100%;
 }
 .first .container h1{
   margin-left: 30%;
-  font-family: chiller;
+  font-family: Mukta, sans-serif;
+  font-weight: 400;
+  color: rgb(4, 113, 255);
 }
 .first .butt{
   margin-left: 50px;
@@ -190,7 +211,7 @@ max-width: 100%;
 .first .big {
   width: 60%;
   height: 40px;
-  border: 1px solid rgb(76, 101, 243);
+  border: 1px solid rgb(4, 113, 255);
   border-radius: 7px;
   background: transparent;
   cursor: pointer;
@@ -202,7 +223,7 @@ max-width: 100%;
 }
 .first .butt .little{
   color: white;
-  background: blue;
+  background: rgb(4, 113, 255);
   width: 8%;
   height: 40px;
   border-radius: 20px;
@@ -213,16 +234,20 @@ max-width: 100%;
 .permission{
   width: 77%;
   margin-left: 15%;
-  margin-top: 1.5%;
+  margin-top: -4%;
   box-shadow: 0px 2px 2px 2px #ddd;
 
 }
-
+.permission-container .permission .flexing{
+  display: flex;
+   gap: 0;
+   margin-top: 10px;
+ }
 .permission-container .permission h1{
   text-align: center;
   margin-top: 70px;
   font-family: Mukta, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 30px;
 
 }
@@ -245,28 +270,24 @@ max-width: 100%;
 .permission .depart-time{
   width: 45%;
  
-  margin-left: 50%;
-  margin-top: -6.5%;
+ 
 }
 .permission .expect-date{
   width: 45%;
-  margin-top: 20px;
+  
  
 }
 .permission .expect-time{
   width: 45%;
- margin-bottom: 10px;
-  margin-left: 50%;
-  margin-top: -6.5%;
+ 
 }
 .permission .issuer{
   width: 45%;
-  margin-top: 20px;
  
 }
 .permission .button{
   color: white;
-  background: blue;
+  background: rgb(4, 113, 255);
   border-radius: 5px;
   padding: 20px 100px 20px;
   border: none;
@@ -277,7 +298,7 @@ max-width: 100%;
 }
 .permission .font{
   font-family: Mukta, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
 }
 .permission select{
   padding: 10px 0px 10px;
@@ -285,15 +306,13 @@ max-width: 100%;
 }
 .permission .depart-reason{
   width: 45%;
-
-  margin-left: 50%;
-  margin-top: -6.5%;
 }
 .permission input[type="date"], input[type="time"]{
   width: 95%;
   border: 1px solid #ddd;
   border-radius: 5px;
   height: 28px;
+  outline: none;
 }
 .fault{
   width: 70%;
@@ -322,10 +341,14 @@ max-width: 100%;
 }
 .fault .font{
   font-family: Mukta, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
 }
 .fault .select1{
   width: 50%;
+}
+.fault .flexing{
+  display: flex;
+  margin-top: 10px;
 }
 .fault .select1 select{
    width: 80%;
@@ -334,9 +357,7 @@ max-width: 100%;
   border-radius: 5px;
 }
 .fault .select2 {
-  margin-left: 50%;
-  margin-top: -8.2%;
-  margin-bottom: 10px;
+width: 50%;
 }
 .fault .select2 select{
   width: 80%;
@@ -344,15 +365,23 @@ max-width: 100%;
  border: 1px solid #ddd;
  border-radius: 5px;
 }
+.fault .select3 select{
+  padding: 15px 30px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
 .fault input[type="date"]{
   width: 95%;
   border: 1px solid #ddd;
   border-radius: 5px;
   height: 35px;
+  outline: none;
 }
 .fault button{
   color: white;
-  background: blue;
+  background: rgb(4, 113, 255);
   border-radius: 5px;
   padding: 20px 100px 20px;
   border: none;
@@ -376,13 +405,13 @@ max-width: 100%;
     margin-left: 13%;
   }
   .permission-container .permission .depart-time{
-    margin-top: -10%;
+    
   }
   .permission-container .permission .expect-time{
-    margin-top: -10%;
+    
   }
   .permission-container .permission .depart-reason{
-    margin-top: -10%;
+    
   }
   .permission-container .permission #qrcode .qrcode-container .real{
     margin-left: 32%;
@@ -432,9 +461,9 @@ max-width: 100%;
      .navbar .nav-links li a{
        text-decoration: none;
        transition: all 0.3s ease 0s;
-       color: blue;
+       color: rgb(4, 113, 255);
        font-family: Mukta, sans-serif;
-       font-weight: 700;
+       font-weight: 500;
      
      }
      .navbar .nav-links li a:hover {
@@ -456,10 +485,10 @@ max-width: 100%;
        border-radius: 5px;
        padding: 9px 25px;
        transition: all 0.3s ease 0s;
-       background: blue;
+       background: rgb(4, 113, 255);
        color: white;
        font-family: Mukta, sans-serif;
-       font-weight: 700;
+       font-weight: 500;
        cursor: pointer;
       }
       .navbar .nav-btn{
@@ -475,10 +504,10 @@ max-width: 100%;
       }
      .navbar .app{
        font-family: Mukta, sans-serif;
-       font-weight: 700;
+       font-weight: 500;
        text-decoration: none;
        transition: all 0.3s ease 0s;
-       color: blue;
+       color: rgb(4, 113, 255);
        cursor: pointer;
      }
      .navbar .modal-container .modal-content .approve{
@@ -490,13 +519,13 @@ max-width: 100%;
        margin-left: 30px;
        margin-top: 15px;
        font-family: Mukta, sans-serif;
-       font-weight: 700;
+       font-weight: 500;
      }
      
      .navbar .modal-container .modal-content  .approvebtn{
        padding: 10px 20px 10px;
        color: white;
-       background: blue;
+       background: rgb(4, 113, 255);
        border: none;
        margin-left: 3%;
        border-radius: 5px;
@@ -526,12 +555,12 @@ max-width: 100%;
       margin-bottom: 5%;
     }
     .permission-container .permission #qrcode .qrcode-container .real .button{
-      margin-left: 4%;
+      margin-left: 1.5%;
       margin-top: 5%;
-      padding: 15px 40px 15px;
+      padding: 15px 80px 15px;
       border: 1px solid #ddd;
       border-radius: 5px;
-      background: blue;
+      background: rgb(4, 113, 255);
       cursor: pointer;
     }
     .permission-container .permission #qrcode .qrcode-container .real h1{
@@ -598,9 +627,9 @@ max-width: 100%;
     .navbar .nav-links li a{
       text-decoration: none;
       transition: all 0.3s ease 0s;
-      color: blue;
+      color: rgb(4, 113, 255);
       font-family: Mukta, sans-serif;
-      font-weight: 700;
+      font-weight: 500;
     
     }
     .navbar .nav-links li a:hover {
@@ -622,10 +651,10 @@ max-width: 100%;
       border-radius: 5px;
       padding: 9px 25px;
       transition: all 0.3s ease 0s;
-      background: blue;
+      background: rgb(4, 113, 255);
       color: white;
       font-family: Mukta, sans-serif;
-      font-weight: 700;
+      font-weight: 500;
       cursor: pointer;
      }
      .navbar .nav-btn{
@@ -641,10 +670,10 @@ max-width: 100%;
      }
     .navbar .app{
       font-family: Mukta, sans-serif;
-      font-weight: 700;
+      font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease 0s;
-      color: blue;
+      color: rgb(4, 113, 255);
       cursor: pointer;
     }
     .navbar .modal-container .modal-content .approve{
@@ -656,21 +685,19 @@ max-width: 100%;
       margin-left: 30px;
       margin-top: 15px;
       font-family: Mukta, sans-serif;
-      font-weight: 700;
+      font-weight: 500;
     }
     
     .navbar .modal-container .modal-content  .approvebtn{
       padding: 10px 20px 10px;
       color: white;
-      background: blue;
+      background: rgb(4, 113, 255);
       border: none;
       margin-left: 3%;
       border-radius: 5px;
       cursor: pointer;
     }
-    .fault-container .fault .select2{
-      margin-top: -11%;
-    }
+    
   .permission{
     width: 90%;
     margin-left: 5%;
@@ -700,17 +727,17 @@ max-width: 100%;
     margin-bottom: 5%;
   }
   .permission-container .permission #qrcode .qrcode-container .real .button{
-    margin-left: 4%;
+    margin-left: 1.5%;
     margin-top: 5%;
-    padding: 15px 40px 15px;
+    padding: 15px 80px 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background: blue;
+    background: rgb(4, 113, 255);
     cursor: pointer;
   }
   .permission-container .permission #qrcode .qrcode-container .real h1{
     font-family: Mukta, sans-serif;
-    font-weight: 700;
+    font-weight: 500;
   }
   .permission-container .permission #qrcode .btn {
     position: absolute;
@@ -758,8 +785,8 @@ max-width: 100%;
     width: 97%;
     margin-left: 10px;
     margin-top: 100px;
-
   }
+ 
   .signup-container .form-cont{
     width: 97%;
     margin-left: 10px;
@@ -783,14 +810,14 @@ max-width: 100%;
     font-size: 2rem;
     color: white;
     font-family: Mukta, sans-serif;
-    font-weight: 700;
+    font-weight: 500;
   }
   
   .navbar .nav-links .app{
     font-size: 2rem;
     color: white;
     font-family: Mukta, sans-serif;
-    font-weight: 700;
+    font-weight: 500;
   }
  
   .navbar .bars{
@@ -845,7 +872,7 @@ max-width: 100%;
   color: white;
   text-decoration: none;
   font-family: Mukta, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
 }
 .view{
   width: 60%;
@@ -885,36 +912,30 @@ max-width: 100%;
 
   }
   .permission .depart-date{
-    margin-top: 10px;
+    
     width: 45%;
   }
   .permission .depart-time{
-    margin-top: -18.2%;
+ 
     width: 45%;
   }
   .permission .expect-date{
-     margin-top: 10px;
+     
     width: 45%;
   }
   .permission .expect-time{
-    margin-top: -18.2%;
+   
     width: 45%;
    
   }
   .permission input[type="date"], input[type="time"]{
     margin-left: 10px;
+    outline: none;
   }
   .permission select{
     margin-left: 10px;
   }
-  .permission .issuer{
-     margin-top: 10px;
-    width: 45%;
-  }
-  .permission .depart-reason{
-    margin-top: -19.9%;
-    width: 45%;
-  }
+ 
   .permission .button{
     margin-left: 40%;
     padding: 15px 30px 15px;
@@ -944,17 +965,17 @@ max-width: 100%;
     margin-bottom: 5%;
   }
   .permission-container .permission #qrcode .qrcode-container .real .button{
-    margin-left: 4%;
+    margin-left: 1.5%;
     margin-top: 5%;
-    padding: 15px 40px 15px;
+    padding: 15px 80px 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background: blue;
+    background: rgb(4, 113, 255);
     cursor: pointer;
   }
   .permission-container .permission #qrcode .qrcode-container .real h1{
     font-family: Mukta, sans-serif;
-    font-weight: 700;
+    font-weight: 500;
   }
   .permission-container .permission #qrcode .btn {
     position: absolute;
@@ -987,10 +1008,9 @@ max-width: 100%;
   }
   .fault input[type="time"]{
     width: 92%;
+    outline: none;
   }
-  .fault .select2{
-    margin-top: -22%;
-  }
+  
   .fault .select3 select{
     margin-left: 5px;
     width: 40%;
@@ -1008,6 +1028,7 @@ max-width: 100%;
 
 @media (min-width: 1280px) {
   /* Rules for desktop screens */
+ 
   .home-container {
     width: 80%;
   }
@@ -1026,7 +1047,7 @@ max-width: 100%;
     
     .navbar .nav-links {
       list-style: none;
-      margin-top: -30%;
+      margin-top: -28%;
     }
     
     
@@ -1038,9 +1059,9 @@ max-width: 100%;
     .navbar .nav-links li a{
       text-decoration: none;
       transition: all 0.3s ease 0s;
-      color: blue;
+      color: rgb(4, 113, 255);
       font-family: Mukta, sans-serif;
-      font-weight: 700;
+      font-weight: 500;
     
     }
     .navbar .nav-links li a:hover {
@@ -1062,10 +1083,10 @@ max-width: 100%;
       border-radius: 5px;
       padding: 9px 25px;
       transition: all 0.3s ease 0s;
-      background: blue;
+      background: rgb(4, 113, 255);
       color: white;
       font-family: Mukta, sans-serif;
-      font-weight: 700;
+      font-weight: 500;
       cursor: pointer;
      }
      .navbar .nav-btn{
@@ -1081,10 +1102,10 @@ max-width: 100%;
      }
     .navbar .app{
       font-family: Mukta, sans-serif;
-      font-weight: 700;
+      font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease 0s;
-      color: blue;
+      color: rgb(4, 113, 255);
       cursor: pointer;
     }
     .navbar .modal-container .modal-content .approve{
@@ -1096,26 +1117,34 @@ max-width: 100%;
       margin-left: 30px;
       margin-top: 15px;
       font-family: Mukta, sans-serif;
-      font-weight: 700;
+      font-weight: 500;
     }
     
     .navbar .modal-container .modal-content  .approvebtn{
       padding: 10px 20px 10px;
       color: white;
-      background: blue;
+      background: rgb(4, 113, 255);
       border: none;
       margin-left: 3%;
       border-radius: 5px;
       cursor: pointer;
     }
+    .permission-container .permission .flexing{
+     display: flex;
+      gap: 0;
+    }
+    .permission-container .permission .depart-date{
+     
+    }
     .permission-container .permission .depart-time{
-      margin-top: -5.5%;
+    margin-left: 5%;
     }
     .permission-container .permission .expect-time{
-      margin-top: -5.5%;
+      margin-left: 5%;
+      margin-top: 0;
     }
     .permission-container .permission .depart-reason{
-      margin-top: -5.5%;
+    margin-left: 5%;
     }
   .permission-container .permission #qrcode {
     position: fixed;
@@ -1140,19 +1169,20 @@ max-width: 100%;
   .permission-container .permission #qrcode .qrcode-container .real{
     margin-left: 30%;
     margin-bottom: 5%;
+    
   }
   .permission-container .permission #qrcode .qrcode-container .real .button{
-    margin-left: 4%;
+    margin-left: 1.5%;
     margin-top: 5%;
-    padding: 15px 40px 15px;
+    padding: 15px 80px 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background: blue;
+    background: rgb(4, 113, 255);
     cursor: pointer;
   }
   .permission-container .permission #qrcode .qrcode-container .real h1{
     font-family: Mukta, sans-serif;
-    font-weight: 700;
+    font-weight: 300;
   }
   .permission-container .permission #qrcode .btn {
     position: absolute;
@@ -1216,7 +1246,7 @@ max-width: 100%;
 }
 .modal-container .modal-content  .font-boxes{
   font-family: Mukta, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   margin-left: 2.9%;
 }
 .modal-container .modal-content .boxes{
@@ -1252,4 +1282,5 @@ max-width: 100%;
   border-radius: 5px;
   margin-top: 10px;
   margin-left: 10px;
+  outline: none;
 }
