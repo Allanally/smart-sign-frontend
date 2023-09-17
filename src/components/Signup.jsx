@@ -5,9 +5,10 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { ToastContainer, toast } from 'react-toastify';
+
 const Signup = () => {
    const navigate = useNavigate('');
-   
+ const [isPending, setIsPending] = useState(false);
  const [name, setName] = useState();
  const  [email, setEmail] = useState();
  const [password, setPassword] = useState();
@@ -16,6 +17,7 @@ const Signup = () => {
  })
  const handleSubmit = async(e) =>{
     e.preventDefault()
+    setIsPending(true);
    try{
    const { data } =  await axios.post("http://localhost:1337/register", {
     name, email, password
@@ -24,6 +26,7 @@ const Signup = () => {
    });
    swal("user created")
    console.log(data);
+   setIsPending(false);
    if(data) {
     if(data.errors){
       const {email, password} = data.errors;
@@ -35,6 +38,7 @@ const Signup = () => {
    }
    }catch(err){
     swal("user not created")
+    setIsPending(false);
    }
 }
         
@@ -64,7 +68,8 @@ const Signup = () => {
 
                 <br /><br />
                 <div className="butt">
-                <button type='submit' >Sign Up</button>
+                { !isPending && <button type='submit'>SIGN UP</button> }
+                   { isPending && <button disabled>LOADING ......</button> }
                   
                     <br />
                     <br />
@@ -77,7 +82,9 @@ const Signup = () => {
                 <br />
             </form>
             <ToastContainer />
-        </div></div>
+        </div>
+       
+        </div>
     );
 }
  

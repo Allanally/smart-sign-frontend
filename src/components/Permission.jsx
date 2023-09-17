@@ -1,10 +1,12 @@
 import Navbar from "./Navbar";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import QRCode from "qrcode.react";
 import { IoMdExit } from 'react-icons/io';
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import jsPDF from "jspdf";
+import Footer from "./Footer";
+import axios from "axios";
 
 
 
@@ -22,53 +24,45 @@ const Permission = () => {
 
   const [qrcodeData, setQRCodeData] = useState(null); 
   
-
-  const [permissions, setPermissions] = useState([]);
   
-  useEffect(() => {
-    const storedPermissions = JSON.parse(localStorage.getItem('permissions'));
-    if (storedPermissions) {
-      setPermissions(storedPermissions);
-    }
-  }, []);
 
-  
-  useEffect(() => {
-    localStorage.setItem('permissions', JSON.stringify(permissions));
-  }, [permissions]);
 
   const handleSubmit = (e) => {
   
   e.preventDefault()
 
- 
-  const permissionData = {
-    name,
-    stream,
-    departDate,
-    departTime,
-    returnDate,
-    returnTime,
-    issuer,
-    reason,
+  const data = `Student Names: ${name}
+  Departure Date: ${departDate}
+  Departure Time: ${departTime}
+  Return Date: ${returnDate}
+  Return Time: ${returnTime}
+  Issuer: ${issuer}
+  Reason: ${reason}
+  Class: ${stream}`;
+  
+  setQRCodeData(data);
+
+
+  axios.post('http://localhost:1337/pendings', {
+    name, departDate,departTime, issuer, reason, stream
+  })
+  .then(result => {
+    console.log(result);
+  })
+ .catch(err => {
+    console.log(err);
+    swal("Failed to Permit!!!!");
+  });
+
+
+  showCode();
   };
-
-  setPermissions((prevPermissions) => [...prevPermissions, permissionData]);
-
-    const data = `Student Names: ${name}
-    Departure Date: ${departDate}
-    Departure Time: ${departTime}
-    Return Date: ${returnDate}
-    Return Time: ${returnTime}
-    Issuer: ${issuer}
-    Reason: ${reason}
-    Class: ${stream}`;
-    
-    setQRCodeData(data);
-
+  const showCode = () =>{
     const qrcode = document.getElementById('qrcode');
     const btn = document.querySelector('.btn');
     const invoke = document.querySelector('.button');
+  
+    
   
     invoke.addEventListener('click', function(){
       swal({
@@ -80,10 +74,10 @@ const Permission = () => {
       })
       qrcode.style.display = 'block';
     })
-   btn.addEventListener('click', function(){
-    qrcode.style.display = 'none';
-   })
-  };
+    btn.addEventListener('click', function(){
+      qrcode.style.display = 'none';
+     })
+  }
 
    
   const handleClick = () => {
@@ -108,13 +102,13 @@ const Permission = () => {
 
   return (
     <div className="permission-container">
-      <Navbar permissions={permissions} setPermissions={setPermissions} />
+      <Navbar />
       <div className="permission">
         <form onSubmit={handleSubmit}>
           <h1>Permission Form</h1>
           <br />
 <label className="font" >Student Names</label><br />
-<input type="text" className="names" placeholder="Eg: Ganza Hodari" value={name} onChange={(e) => setName(e.target.value)} /><br /><br />
+<input type="text" className="names" required placeholder="Eg: Ganza Hodari" value={name} onChange={(e) => setName(e.target.value)} /><br /><br />
 <div className="flexing">
 <div className="depart-date">
     <label className="font"  >Departure Date</label>
@@ -149,7 +143,7 @@ onChange={(e) => setReturnTime(e.target.value)} /><br />
     <br /><br />
    
    <select  value={issuer} onChange={(e) => setIssuer(e.target.value)} required >
-    <option value="Discipline Prefect">Discipline Prefect</option>
+    <option value="Discipline-Prefect">Discipline Prefect</option>
     <option value="Patron">Patron</option>
     <option value="Metron">Metron</option>
    </select>
@@ -198,7 +192,7 @@ onChange={(e) => setReturnTime(e.target.value)} /><br />
             <option value="S6 PCM">S6 PCM</option>
             </select>
 </div>
-<button type="submit" className="button">SIGN</button><br /><br/>
+<button onClick={showCode} type="submit" className="button">SIGN</button><br /><br/>
          
         </form>
          <div id="qrcode">
@@ -219,6 +213,7 @@ onChange={(e) => setReturnTime(e.target.value)} /><br />
           </div>
          </div>
         </div>
+        <Footer />
     </div>
   );
 };

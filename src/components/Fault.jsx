@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import swal from "sweetalert";
+import Footer from "./Footer";
 const Fault = () => {
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
@@ -107,6 +108,7 @@ const Fault = () => {
                <button type="submit">SIGN</button><br /><br />
             </form>
            </div>
+           <Footer/>
         </div>
      );
 }

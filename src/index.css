@@ -52,15 +52,17 @@ max-width: 100%;
   font-family: Mukta, sans-serif;
   font-weight: 500;
 }
-
+.login-container .form-cont label{
+  font-family: Mukta, sans-serif;
+  font-weight: 500;
+}
 .login-container input[type="email"], input[type="password"]  {
   width: 95%;
   height: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  outline: rgb(4, 113, 255);
+  outline: none;
 }
-
 .login-container .butt{
   text-align: center;
 } 
@@ -394,6 +396,53 @@ width: 50%;
   border-radius: 5px;
   border: 1px solid #ddd;
 }
+
+.footer{
+  display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin-top: 1.5rem;
+    background: white;
+    box-shadow: 0px 0px 10px 0px #ddd;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   column-gap: 20px;
+}
+.footer h2, p{
+
+  font-family: Mukta, sans-serif;
+  font-weight: 500;
+  color: rgb(86, 92, 100) ;
+}
+.footer h2{
+  margin-left: 1.7rem;
+}
+.footer p{
+  line-height: 2.2rem;
+}
+.footer a{
+  text-decoration: none;
+  margin-left: 10px;
+}
+.footer .links{
+margin-left: 1.3rem;
+}
+.footer .icon{
+  padding: 10px 10px;
+  font-size: 25px;
+  color: rgb(25, 38, 54);
+}
+.footer .blue:hover{
+  scale: 2;
+  color: rgb(4, 113, 255);
+}
+.footer .red:hover{
+  color: red;
+}
+.footer .purple:hover{
+  color: rgb(182, 9, 182);
+}
 @media (min-width: 600px) and (max-width: 850px) and (orientation: portrait) {
   /* Your styles for iPad Mini in portrait orientation */
   .login-container .form-cont{
@@ -403,18 +452,6 @@ width: 50%;
   .signup-container .form-cont{
     margin-top: 15%;
     margin-left: 13%;
-  }
-  .permission-container .permission .depart-time{
-    
-  }
-  .permission-container .permission .expect-time{
-    
-  }
-  .permission-container .permission .depart-reason{
-    
-  }
-  .permission-container .permission #qrcode .qrcode-container .real{
-    margin-left: 32%;
   }
   .fault-container .fault .select2{
     margin-top: -14%;
@@ -444,7 +481,7 @@ width: 50%;
      display: flex;
      justify-content: flex-end;
      align-items: center;
-     padding: 30px 10px;
+  padding: 30px 10px;
      }
      
      .navbar .nav-links {
@@ -551,7 +588,7 @@ width: 50%;
     }
     
     .permission-container .permission #qrcode .qrcode-container .real{
-      margin-left: 18%;
+      margin-left: 11%;
       margin-bottom: 5%;
     }
     .permission-container .permission #qrcode .qrcode-container .real .button{
@@ -580,10 +617,13 @@ width: 50%;
       background: black;
       cursor: pointer;
     }
+    .footer{
+      padding: 2px;
+      column-gap: 2px;
+      width: 99%;
+    }
 }
-@media (min-width: 600px) and (max-width: 1024px) and (orientation: landscape) {
-  /* Your styles for iPad in landscape orientation */
-}
+
 @media (min-width: 850px) and (max-width: 1280px) {
  /*Rules for tablets*/
   .home-container {
@@ -604,7 +644,7 @@ width: 50%;
    width: 5%;
   }
   .navbar .nav-links{
-   margin-top: -20.5%;
+   margin-top: -20.9%;
   }
   .navbar header{
     display: flex;
@@ -767,7 +807,7 @@ width: 50%;
   .home-container {
     width: 100%;
     margin-left: -15px;
-    margin-top: 100px;
+    margin-top: 0px;
   }
   .home-container img{
     width: 80%;
@@ -792,7 +832,7 @@ width: 50%;
     margin-left: 10px;
   }
   .navbar{
-    width: 99%;
+    width: 100%;
     margin-left: 0px;
     margin-right: 0px;
     box-shadow: 2px 2px 3px 2px #ddd;
@@ -1022,6 +1062,10 @@ width: 50%;
     font-size: 14px;
     margin-top: 40px;
   }
+  .footer{
+   display: block;
+   flex-direction: row;
+  }
   
 }
 
@@ -1035,19 +1079,30 @@ width: 50%;
   .login-container {
     width: 50%;
   }
+ 
   .signup-container {
     width: 50%;
   }
+ .navbar .navbarr{
+  display: flex;
+  justify-content: space-between;
+ }
+ .navbar .navbarr header{
+  padding: 0;
+  height: 80px;
+ }
   .navbar header{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 30px 10px;
     }
-    
+    .navbar img{
+   width: 19%;
+    }
     .navbar .nav-links {
       list-style: none;
-      margin-top: -28%;
+     margin-top: 5px;
     }
     
     
@@ -1067,11 +1122,7 @@ width: 50%;
     .navbar .nav-links li a:hover {
       color: rgb(194, 141, 247);
     }
-    .navbar ul{
-      margin-top: -32%;
-    }
-    
-     .navbar{
+   .navbar{
       box-shadow: 2px 2px 3px #ddd;
       height: 55px;
      }

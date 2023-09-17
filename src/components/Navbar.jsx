@@ -11,13 +11,30 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useCookies } from 'react-cookie';
 
 
-const Navbar = ({ permissions, setPermissions }) => {
+const Navbar = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [returnDate, setReturnDate] = useState(false);
     const [returnTime, setReturnTime] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [searchActive, setSearchActive] = useState(false);
+    const [permissions, setPermissions] = useState([]);
+
+    useEffect(() => {
+      const fetchPermissions = async () => {
+        try {
+          const response = await fetch('http://localhost:1337/pendings'); 
+          if (response.ok) {
+            const data = await response.json();
+            setPermissions(data); 
+          }
+        } catch (error) {
+          console.error('Error fetching approved docs:', error);
+        }
+      };
+  
+      fetchPermissions();
+    }, []);
 
     const handleSearch = (e) => {
       setSearchQuery(e.target.value);
@@ -30,12 +47,12 @@ const Navbar = ({ permissions, setPermissions }) => {
     };
   
    
-    permissions = searchActive
+   {/* permissions = searchActive
       ? permissions.filter(
           (permission) =>
             permission.name.toLowerCase().includes(searchQuery.toLowerCase())
         )
-      : permissions;
+      : permissions; */}
 
       const location = useLocation();
 
@@ -57,6 +74,9 @@ const Navbar = ({ permissions, setPermissions }) => {
 
 
     const handleSubmit = (e, permission, index) => {
+
+
+
       const { name, stream,departDate, departTime, issuer, reason } = permission;
         e.preventDefault()
         axios.post('http://localhost:1337/permission', {
@@ -132,21 +152,41 @@ const Navbar = ({ permissions, setPermissions }) => {
 
     setSelected(index);
     }
+    
 
  const handleDelete = (index) =>{
-  if (setPermissions) {
-    setPermissions((prevPermissions) => {
-      const updatedPermissions = [...prevPermissions];
-      updatedPermissions.splice(index, 1);
-      return updatedPermissions;
-    });
-  }
+  const name = permissions[index].name
+  const departDate = permissions[index].departDate
+  const departTime = permissions[index].departTime
+  const issuer = permissions[index].issuer
+  const reason = permissions[index].reason
+  const stream = permissions[index].stream
+ axios.delete('http://localhost:1337/pendings', {
+  name, departDate, departTime, issuer, reason, stream
+ })
+ .then((result) => {
+  console.log("Permission deleted successfully:", result);
+})
+.catch((error) => {
+  console.error("Error deleting approval data:", error);
+});
+if (setPermissions) {
+  setPermissions((prevPermissions) => {
+    const updatedPermissions = [...prevPermissions];
+    updatedPermissions.splice(index, 1);
+    return updatedPermissions;
+  });
+}
  }
     return (  
         <div className="navbar">
-           <img src={logo} alt="Smart Sign" />
+          <div className='navbarr'>
+            <div>
+            <img src={logo} alt="Smart Sign" />
+          </div>
            
-            <header>
+           <div>
+             <header>
             <nav ref={navRef}>
                 <ul className='nav-links'>
                      <li className='app'><Link to="/view">View Docs</Link></li>
@@ -161,23 +201,31 @@ const Navbar = ({ permissions, setPermissions }) => {
          
                <button onClick={showNavBar} className='nav-btn bars'><FaBars /></button>
              </header>
+           </div>
+          </div>
+          
+           
             {showModal && (
                    <div className="modal-container">
                   <div className="modal-content" style={{  maxHeight: "500px", overflowY: "auto" }}>
-                  <input
+        { /*         <input
         type="text"
         placeholder="Search Here!"
         value={searchQuery}
         onChange={handleSearch}
         onKeyDown={handleSearchEnter} 
-      />
+            /> */}
                   <br />
                    <button className='modalbtn' onClick={handleCloseModal}><IoMdExit /></button>
 
               <div className="morediv">
 
                 <div className="accordion">
-                  {permissions.map((permission, index) => (
+                  {permissions.length === 0 ? (
+                    <div>
+                      <h1 style={{ fontSize: "20px", textAlign: "center", fontWeight: "500", fontFamily: "Mukta, sans-serif"}}>No Pending Approvals</h1>
+                    </div>
+                  ) :permissions.map((permission, index) => (
                     <div className="item" key={index}>
                       <div className="little-cont" onClick={() => toggle(index)}>
                        <h2>Student Names: {permission.name} </h2>
@@ -194,7 +242,7 @@ const Navbar = ({ permissions, setPermissions }) => {
                              <p>Reason: {permission.reason}</p>
                              <p>class: {permission.stream}</p>
                              <button className='approvebtn' onClick={(e) => handleSubmit(e, permission)}>Approve Return</button>
-                             <FaTrash onClick={handleDelete} style={{marginLeft: "80%", cursor: "pointer", color: "red"}}/>
+                             <FaTrash onClick={() => handleDelete(index)} style={{marginLeft: "80%", cursor: "pointer", color: "red"}}/>
                       </div>
                     </div>
                     ))}
