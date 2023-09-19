@@ -22,7 +22,7 @@ const Login = () => {
      e.preventDefault()
     setIsPending(true);
      try{
-     const { data } =  await axios.post("http://localhost:1337/login", {
+     const { data } =  await axios.post("https://tiny-puce-puppy-gear.cyclic.cloud/login", {
        email, password
      },{
       withCredentials: true
