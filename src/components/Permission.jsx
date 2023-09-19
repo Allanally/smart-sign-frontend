@@ -43,7 +43,7 @@ const Permission = () => {
   setQRCodeData(data);
 
 
-  axios.post('http://localhost:1337/pendings', {
+  axios.post('https://tiny-puce-puppy-gear.cyclic.cloud/pendings', {
     name, departDate,departTime, issuer, reason, stream
   })
   .then(result => {

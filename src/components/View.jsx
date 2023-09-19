@@ -12,7 +12,7 @@ const ViewDocs = () => {
 
     const handleSubmit = async (e) => {
         try {
-            const { data } = await axios.post("http://localhost:1337/view", {
+            const { data } = await axios.post("https://tiny-puce-puppy-gear.cyclic.cloud/view", {
               name,
               stream,
             });

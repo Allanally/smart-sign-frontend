@@ -19,7 +19,7 @@ const Signup = () => {
     e.preventDefault()
     setIsPending(true);
    try{
-   const { data } =  await axios.post("http://localhost:1337/register", {
+   const { data } =  await axios.post("https://tiny-puce-puppy-gear.cyclic.cloud/register", {
     name, email, password
    },{
     withCredentials: true

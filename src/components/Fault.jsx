@@ -17,7 +17,7 @@ const Fault = () => {
 
    const handleSubmit = (e) =>{
       e.preventDefault()
-      axios.post('http://localhost:1337/fault', {
+      axios.post('https://tiny-puce-puppy-gear.cyclic.cloud/fault', {
         name, date, type, issuer, message, user, stream
       })
       .then(result => {
