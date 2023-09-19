@@ -23,7 +23,7 @@ const Navbar = () => {
     useEffect(() => {
       const fetchPermissions = async () => {
         try {
-          const response = await fetch('http://localhost:1337/pendings'); 
+          const response = await fetch('https://tiny-puce-puppy-gear.cyclic.cloud/pendings'); 
           if (response.ok) {
             const data = await response.json();
             setPermissions(data); 
@@ -79,7 +79,7 @@ const Navbar = () => {
 
       const { name, stream,departDate, departTime, issuer, reason } = permission;
         e.preventDefault()
-        axios.post('http://localhost:1337/permission', {
+        axios.post('https://tiny-puce-puppy-gear.cyclic.cloud/permission', {
           name, stream, departDate, departTime, returnDate, returnTime, issuer, reason,
         })
         .then((result) => {
@@ -126,7 +126,7 @@ const Navbar = () => {
       if(!cookies.jwt){
         navigate("/login");
       }else{
-        const { data } = await axios.post("http://localhost:1337", {
+        const { data } = await axios.post("https://tiny-puce-puppy-gear.cyclic.cloud/", {
 
         }, { withCredentials: true});
         if(!data.status) {
